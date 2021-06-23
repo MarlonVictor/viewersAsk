@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../hooks/useAuth';
+
 import { Button } from '../../components/Button';
 import { Aside } from '../../components/Aside';
 
@@ -9,6 +11,8 @@ import { NewRoomContainer, MainContent, FormContainer } from './styles';
 
 
 export function NewRoom() {
+    const { user } = useAuth()
+
     return (
         <NewRoomContainer>
             <Aside />
