@@ -11,6 +11,7 @@ interface UserProps {
 interface AuthContextData {
     user: UserProps | undefined;
     signInWithGoogle: () => Promise<void>;
+    signOut: () => Promise<void>;
 }
 
 interface AuthContextProviderProps {
@@ -63,11 +64,17 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         }
     }
 
+    async function signOut() {
+        await auth.signOut();
+        setUser(undefined)
+    }
+
     return (
         <AuthContext.Provider
             value={{
                 user,
-                signInWithGoogle
+                signInWithGoogle,
+                signOut
             }}
         >
             {children}
