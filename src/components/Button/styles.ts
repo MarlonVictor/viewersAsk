@@ -22,7 +22,8 @@ export const ButtonContainer = styled.button`
         margin-right: 16px;
     }
 
-    &.enter-room {
+    &.enter-room, &.send-message {
+        color: #FFF;
         background: linear-gradient(160deg, rgba(24,119,242,1) 22%, rgba(134,67,234,1) 100%);
     }
 
