@@ -43,6 +43,12 @@ export function Auth() {
             return
         }
 
+        if (roomRef.val().closedAt) {
+            alert('Room already closed.')
+            setRoomCode('')
+            return
+        }
+
         history.push(`/rooms/${roomCode}`)
     }
 

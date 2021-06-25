@@ -9,6 +9,24 @@ export const QuestionContent = styled.div`
     background: var(--gray-800);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 
+    &.answered {
+        filter: brightness(0.7);
+        color: var(--gray-600);
+
+        footer .user-info span {
+            color: var(--gray-600);
+        }
+    }
+
+    &.highlighted {
+        background: var(--gray-selected);
+        
+
+        footer .user-info span {
+            color: var(--gray-100);
+        }
+    }
+
     & + & {
         margin-top: 0.5rem;
     }
@@ -34,10 +52,25 @@ export const QuestionContent = styled.div`
             }
 
             span {
-                margin-left: 8px;
-                
                 color: var(--gray-300);
                 font-size: 0.9rem;
+            }
+        }
+
+        > div {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                border: 0;
+                background: transparent;
+
+                cursor: pointer;
+                transition: filter 0.3s;
+
+                &:hover {
+                    filter: brightness(0.9);
+                }
             }
         }
     }

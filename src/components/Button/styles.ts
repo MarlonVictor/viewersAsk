@@ -27,6 +27,16 @@ export const ButtonContainer = styled.button`
         background: linear-gradient(160deg, rgba(24,119,242,1) 22%, rgba(134,67,234,1) 100%);
     }
 
+    &.close-room {
+        height: 40px;
+        padding: 1rem;
+
+        border: 1px solid var(--gray-300);
+        background: transparent;
+
+        font-size: 1rem;
+    }
+
     &.create-with-google {
         margin-top: 54px;
         background: var(--gray-800);
