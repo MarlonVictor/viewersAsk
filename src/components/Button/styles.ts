@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button`
     padding: 0 2rem;
     
     border-radius: 8px;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--gray-100);
 

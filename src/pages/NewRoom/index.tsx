@@ -32,7 +32,7 @@ export function NewRoom() {
             authorId: user?.id
         })
 
-        history.push(`/rooms/${firebaseRoom.key}`)
+        history.push(`/admin/rooms/${firebaseRoom.key}`)
     }
 
     return (
@@ -41,7 +41,19 @@ export function NewRoom() {
 
             <main>
                 <MainContent>
-                    <img src={logoImg} alt="ViewerAsk" />
+                    <img 
+                        src={logoImg} 
+                        alt="ViewerAsk" 
+                        className="logo-image"
+                    />
+                    
+                    {user && 
+                        <img 
+                            src={user.avatar} 
+                            alt={user.name} 
+                            className="user-avatar"
+                        />
+                    }
 
                     <h2>Criar uma nova sala</h2>
 

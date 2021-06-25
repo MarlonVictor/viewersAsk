@@ -36,9 +36,24 @@ export const RoomCodeButton = styled.button`
         align-self: center;
 
         padding: 0 1rem 0;
-        width: 215px;
 
         font-size: 0.8rem;
         font-weight: 500;
+
+        @media(min-width: 768px) {
+            &.small-screen {
+                display: none;
+            }
+        }
+        @media(max-width: 767px) {
+            &.wide-screen {
+                display: none;
+            }
+        }
+        @media(max-width: 425px) {
+            &.small-screen {
+                display: none;
+            }
+        }
     }
 `

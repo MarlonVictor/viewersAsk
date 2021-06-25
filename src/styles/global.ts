@@ -3,17 +3,16 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --gray-900: #0e0e10;
-        --gray-800: #18181b;
-        --gray-750: #1f1f23;
+        --gray-900: #202124;
+        --gray-800: #303134;
         --gray-600: #464649;
-        --gray-300: #89858b;
-        --gray-100: #e7e7e9;
+        --gray-300: #89858B;
+        --gray-100: #E7E7E9;
 
-        --gray-selected: #252f3c;
+        --gray-selected: #252F3C;
 
-        --blue-facebook: #1877f2;
-        --purple-twitch: #8643ea;
+        --blue-facebook: #1877F2;
+        --purple-twitch: #8643EA;
     }
 
     * {
@@ -37,10 +36,16 @@ export const GlobalStyle = createGlobalStyle`
             font-size: 93.75%;
         }
     }
-    @media(max-width: 800px) {
+    @media(max-width: 1024px) {
         html {
-            // 14px
-            font-size: 87.50%;
+            // 13px
+            font-size: 81,20%;
+        }
+    }
+    @media(max-width: 425px) {
+        html {
+            // 12px
+            font-size: 75%;
         }
     }
 `

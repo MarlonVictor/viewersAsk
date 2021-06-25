@@ -9,6 +9,14 @@ export const QuestionContent = styled.div`
     background: var(--gray-800);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 
+    @media(max-width: 425px) {
+        padding: 16px;
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+
     &.answered {
         filter: brightness(0.7);
         color: var(--gray-600);
@@ -53,7 +61,7 @@ export const QuestionContent = styled.div`
 
             span {
                 color: var(--gray-300);
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
         }
 

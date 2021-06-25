@@ -28,19 +28,34 @@ export const MainContent = styled.div`
     
     text-align: center;
 
-    > img {
+    .logo-image {
         align-self: center;
+
+        @media(max-width: 375px) {
+            width: 150px;
+        }
+    }
+
+    .user-avatar {
+        margin-top: 48px;
+        align-self: center;
+
+        border-radius: 8px;
+
+        @media(max-width: 375px) {
+            width: 80px;
+        }
     }
 
     h2 {
-        margin: 54px 0 24px;
+        margin: 18px 0 48px;
 
         font-size: 1.6rem;
         font-family: 'Poppins', sans-serif;
     }
 
     p {
-        margin-top: 1rem;
+        margin-top: 1.2rem;
 
         font-size: 0.9rem;
         color: var(--gray-300);
@@ -57,9 +72,11 @@ export const FormContainer = styled.form`
         height: 50px;
         padding: 0 16px;
 
-        border: 1px solid var(--gray-800);
+        border: 0;
         border-radius: 8px;
-        background: var(--gray-750);
+        
+        color: #FFF;
+        background: var(--gray-800);
     }
 
     button, input {

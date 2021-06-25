@@ -28,13 +28,17 @@ export const AuthContainer = styled.div`
 
             > img {
                 align-self: center;
+
+                @media(max-width: 375px) {
+                    width: 150px;
+                }
             }
         }
     }
 `
 
 export const SeparatorSpan = styled.span`
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--gray-300);
 
     margin: 32px 0;
@@ -65,9 +69,11 @@ export const FormContainer = styled.form`
         height: 50px;
         padding: 0 16px;
 
-        border: 1px solid var(--gray-800);
+        border: 0;
         border-radius: 8px;
-        background: var(--gray-750);
+
+        color: #FFF;
+        background: var(--gray-800);
     }
 
     button, input {
