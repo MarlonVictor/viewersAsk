@@ -96,7 +96,7 @@ export const MainContent = styled.main`
     }
 
     section {
-        margin-top: 32px;
+        margin: 32px 0;
 
         button {
             border: 0;
@@ -176,9 +176,11 @@ export const FormContainer = styled.form`
             color: var(--gray-300);
 
             button {
+                margin-left: 0.3rem;
+                
                 font-size: 0.9rem;
-                text-decoration: underline;
                 font-weight: 500;
+                text-decoration: underline;
                 color: var(--blue-facebook);
                 background: transparent;
 

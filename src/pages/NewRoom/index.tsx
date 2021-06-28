@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -17,6 +17,12 @@ export function NewRoom() {
     const { user } = useAuth()
 
     const [newRoom, setNewRoom] = useState('')
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/')
+        }
+    }, [history, user])
 
     async function handleCreateRoom(e: FormEvent) {
         e.preventDefault()

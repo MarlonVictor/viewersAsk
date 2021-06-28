@@ -37,6 +37,7 @@ export const MainContent = styled.div`
     }
 
     .user-avatar {
+        width: 100px;
         margin-top: 48px;
         align-self: center;
 

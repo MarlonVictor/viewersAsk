@@ -11,6 +11,7 @@ interface UserProps {
 interface AuthContextData {
     user: UserProps | undefined;
     signInWithGoogle: () => Promise<void>;
+    signInWithFacebook: () => Promise<void>;
     signOut: () => Promise<void>;
 }
 
@@ -64,6 +65,25 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         }
     }
 
+    async function signInWithFacebook() {
+        const provider = new firebase.auth.FacebookAuthProvider()
+        const result = await auth.signInWithPopup(provider)
+        
+        if (result.user) {
+            const { uid, displayName, photoURL } = result.user
+
+            if (!displayName) {
+                throw new Error('Missing information from Facebook Account.')
+            }
+
+            setUser({
+                id: uid,
+                name: displayName,
+                avatar: photoURL
+            })
+        }
+    }
+
     async function signOut() {
         await auth.signOut();
         setUser(undefined)
@@ -74,6 +94,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
             value={{
                 user,
                 signInWithGoogle,
+                signInWithFacebook,
                 signOut
             }}
         >

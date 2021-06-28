@@ -15,6 +15,20 @@ export const GlobalStyle = createGlobalStyle`
         --purple-twitch: #8643EA;
     }
 
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        transition: .3s;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--gray-300);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track{
+        background: var(--gray-800);
+        border-radius: 10px;
+    }
+
     * {
         margin: 0;
         padding: 0;

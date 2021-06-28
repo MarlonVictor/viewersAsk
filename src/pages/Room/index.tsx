@@ -8,9 +8,12 @@ import { database } from '../../services/firebase';
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
+import { Modal } from '../../components/Modal';
 
 import logoImg from '../../assets/logo.svg';
 import exitImg from '../../assets/exit.svg';
+import googleIconImg from '../../assets/google-icon.svg';
+import facebookIconImg from '../../assets/facebook-icon.svg';
 
 import { RoomContainer, MainContent, FormContainer } from './styles';
 
@@ -24,10 +27,13 @@ export function Room() {
     const roomId = params.id
 
     const history = useHistory()
-    const { user, signOut } = useAuth()
+    const { user, signInWithGoogle, signInWithFacebook, signOut } = useAuth()
     const { title, questions } = useRoom(roomId)
 
-    const [newQuestion, setNewQuestion] = useState('')    
+    const orderedQuestions = questions.sort((a, b) => b.likeCount - a.likeCount)
+
+    const [newQuestion, setNewQuestion] = useState('')
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     async function handleSendQuestion(e: FormEvent) {
         e.preventDefault()
@@ -65,7 +71,21 @@ export function Room() {
                     authorId: user?.id
                 })
             }
+        } else {
+            setModalIsOpen(true)
+            return
         }
+    }
+
+    async function handleSignIn(type: string) {
+        if (type === "Google") {
+            await signInWithGoogle()
+
+        } else if (type === "Facebook") {
+            await signInWithFacebook()
+        }
+
+        setModalIsOpen(false)
     }
 
     async function handleSignOut() {
@@ -114,7 +134,12 @@ export function Room() {
                                 <span>{user.name}</span>
                             </div>
                         ) : (
-                            <span>Para enviar uma pergunta, <button>Faça seu login</button>.</span>
+                            <span>
+                                Para enviar uma pergunta, 
+                                <button onClick={() => setModalIsOpen(true)}>
+                                    Faça seu login
+                                </button>.
+                            </span>
                         )}
 
                         <Button type="submit" className="send-message" disabled={!user}>
@@ -124,7 +149,7 @@ export function Room() {
                 </FormContainer>
 
                 <section>
-                    {questions.map(q => {
+                    {orderedQuestions.map(q => {
                         return (
                             <Question 
                                 key={q.id}
@@ -151,6 +176,24 @@ export function Room() {
                     })}
                 </section>
             </MainContent>
+
+            <Modal 
+                isOpen={modalIsOpen} 
+                closeModal={() => setModalIsOpen(false)}
+            >
+                <h2>Fazer login com:</h2>
+
+                <div>
+                    <Button className="login-with-google" onClick={() => handleSignIn("Google")}>
+                        <img src={googleIconImg} alt="Logo do Google" />
+                        Google
+                    </Button>
+                    <Button className="login-with-facebook" onClick={() => handleSignIn("Facebook")}>
+                        <img src={facebookIconImg} alt="Logo do Facebook" />
+                        Facebook
+                    </Button>
+                </div>
+            </Modal>
         </RoomContainer>
     )
 }

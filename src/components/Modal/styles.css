@@ -1,0 +1,70 @@
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-body {
+    display: flex;
+    position: relative;
+    margin: 32px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 2rem;
+    background-color: var(--gray-900);
+}
+.modal-body .close-modal {
+    background: transparent;
+    border: 0;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+.modal-body main {
+    flex: 1;
+}
+.modal-body main h1 {
+    padding: 2rem 0 1.5rem;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+}
+.modal-body main h2 {
+    padding: 2rem 0 3rem;
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+    text-align: center;
+}
+.modal-body main p {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 3rem;
+}
+.modal-body main div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-body main div > img {
+    width: 4rem;
+}
+.modal-body main div footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    width: 100%;
+}
+@media(max-width: 375px) {
+    .modal-body main p {
+        padding: 0;
+    }
+    .modal-body main div footer {
+        grid-template-columns: 40% 60%;
+    }
+}

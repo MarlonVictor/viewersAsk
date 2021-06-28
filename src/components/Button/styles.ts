@@ -36,11 +36,42 @@ export const ButtonContainer = styled.button`
         background: transparent;
 
         font-size: 1rem;
+        color: var(--gray-100);
     }
 
     &.create-with-google {
         margin-top: 54px;
         background: var(--gray-800);
+    }
+
+    &.create-with-facebook {
+        background: transparent;
+        margin-top: 1rem;
+        border: 2px solid var(--gray-800);
+    }
+
+    &.login-with-google {
+        background: var(--gray-800);
+        width: 20rem;
+        margin-top: 1rem;
+    }
+    &.login-with-facebook {
+        background: transparent;
+        width: 20rem;
+        margin-top: 0.5rem;
+        border: 2px solid var(--gray-800);
+    }
+    &.login-with-facebook img, &.create-with-facebook img {
+        margin-right: 7px;
+    }
+
+    &.delete-modal-cancel {
+        background: transparent;
+        border: 2px solid var(--gray-600);
+    }
+
+    &.delete-modal-accept {
+        background: var(--gray-600);
     }
 
     &:not(:disabled):hover {

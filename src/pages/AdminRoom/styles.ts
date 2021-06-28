@@ -74,6 +74,6 @@ export const MainContent = styled.main`
     }
 
     section {
-        margin-top: 32px;
+        margin: 32px 0;
     }
 `
