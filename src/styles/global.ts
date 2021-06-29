@@ -21,10 +21,10 @@ export const GlobalStyle = createGlobalStyle`
         transition: .3s;
     }
     ::-webkit-scrollbar-thumb {
-        background: var(--gray-300);
+        background: var(--gray-600);
         border-radius: 10px;
     }
-    ::-webkit-scrollbar-track{
+    ::-webkit-scrollbar-track {
         background: var(--gray-800);
         border-radius: 10px;
     }

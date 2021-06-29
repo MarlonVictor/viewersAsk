@@ -18,11 +18,11 @@ export const QuestionContent = styled.div`
     }
 
     &.answered {
-        filter: brightness(0.7);
-        color: var(--gray-600);
+        filter: brightness(0.8);
+        color: var(--gray-300);
 
-        footer .user-info span {
-            color: var(--gray-600);
+        img {
+            filter: brightness(0.5);
         }
     }
 
