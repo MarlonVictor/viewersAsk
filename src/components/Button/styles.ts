@@ -32,11 +32,11 @@ export const ButtonContainer = styled.button`
         height: 40px;
         padding: 1rem;
 
-        border: 1px solid var(--gray-300);
+        border: 1px solid #E95671;
         background: transparent;
 
         font-size: 1rem;
-        color: var(--gray-100);
+        color: #E95671;
     }
 
     &.create-with-google {
@@ -71,7 +71,7 @@ export const ButtonContainer = styled.button`
     }
 
     &.delete-modal-accept {
-        background: var(--gray-600);
+        background: #E95671;
     }
 
     &:not(:disabled):hover {

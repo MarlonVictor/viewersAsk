@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 import toast from 'react-hot-toast';
 
 import { useRoom } from '../../hooks/useRoom';
@@ -81,6 +82,9 @@ export function AdminRoom() {
 
     return (
         <AdminRoomContainer>
+            <Helmet>
+                <title>Minha sala | ViewersAsk</title>
+            </Helmet>
             <header>
                 <div>
                     <img src={logoImg} alt="ViewerAsk" />

@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
@@ -43,6 +44,10 @@ export function NewRoom() {
 
     return (
         <NewRoomContainer>
+            <Helmet>
+                <title>Criar sala | ViewersAsk</title>
+            </Helmet>
+
             <Aside />
 
             <main>

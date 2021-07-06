@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 import toast from 'react-hot-toast';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -42,10 +43,6 @@ export function Room() {
     useEffect(() => {
         if (title !== '') {
             setLoading(false)
-
-            if (!user) {
-                history.push('/')
-            }
         }
     }, [title, user, history])
 
@@ -121,6 +118,9 @@ export function Room() {
 
     return (
         <RoomContainer>
+            <Helmet>
+                <title>{title} | ViewersAsk</title>
+            </Helmet>
             <header>
                 <div>
                     <img src={logoImg} alt="ViewerAsk" />
@@ -162,7 +162,7 @@ export function Room() {
                         ) : (
                             <span>
                                 Para enviar uma pergunta, 
-                                <button onClick={() => setModalIsOpen(true)}>
+                                <button onClick={() => setModalIsOpen(true)} type="reset">
                                     Faça seu login
                                 </button>.
                             </span>
