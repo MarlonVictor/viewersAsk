@@ -8,6 +8,9 @@ export const QuestionContent = styled.div`
     color: var(--gray-100);
     background: var(--gray-800);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    
+    -webkit-animation: bounce-in-top .3s both;
+    animation: bounce-in-top .3s both;
 
     @media(max-width: 425px) {
         padding: 16px;
@@ -82,4 +85,38 @@ export const QuestionContent = styled.div`
             }
         }
     }
+
+    @-webkit-keyframes bounce-in-top {
+        0% {
+            -webkit-transform: translateY(50px);
+                transform: translateY(50px);
+            -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(0);
+                transform: translateY(0);
+            -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            opacity: 1;
+        }
+   }
+
+    @keyframes bounce-in-top {
+        0% {
+            -webkit-transform: translateY(50px);
+                transform: translateY(50px);
+            -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(0);
+                transform: translateY(0);
+            -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+            opacity: 1;
+        }
+   }
 `

@@ -22,14 +22,17 @@ export function Auth() {
 
     const [roomCode, setRoomCode] = useState('')
 
-    async function handleCreateRoom(type: string) {
+    async function createRoomWithGoogle() {
         if (!user) {
-            if (type === "Google") {
-                await signInWithGoogle()
+            await signInWithGoogle()
+        }
 
-            } else if (type === "Facebook") {
-                await signInWithFacebook()
-            }
+        history.push('/rooms/new')
+    }
+
+    async function createRoomWithFacebook() {
+        if (!user) {
+            await await signInWithFacebook()
         }
 
         history.push('/rooms/new')
@@ -67,12 +70,12 @@ export function Auth() {
                 <div>
                     <img src={logoImg} alt="ViewerAsk" />
 
-                    <Button className="create-with-google" onClick={() => handleCreateRoom("Google")}>
+                    <Button className="create-with-google" onClick={createRoomWithGoogle}>
                         <img src={googleIconImg} alt="Logo do Google" />
                         Crie sua sala com o Google
                     </Button>
 
-                    <Button className="create-with-facebook" onClick={() => handleCreateRoom("facebook")}>
+                    <Button className="create-with-facebook" onClick={createRoomWithFacebook}>
                         <img src={facebookIconImg} alt="Logo do Facebook" />
                         Crie sua sala com o Facebook
                     </Button>

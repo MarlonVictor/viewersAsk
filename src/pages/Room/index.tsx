@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import toast from 'react-hot-toast';
 
 import { useAuth } from '../../hooks/useAuth';

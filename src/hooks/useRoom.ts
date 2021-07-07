@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import { database } from '../services/firebase';
 import { useAuth } from './useAuth';
@@ -32,6 +34,7 @@ type QuestionType = {
 
 export function useRoom(roomId: string) {
     const { user } = useAuth()
+    const history = useHistory()
 
     const [title, setTitle] = useState('')
     const [questions, setQuestions] = useState<QuestionType[]>([])
@@ -39,9 +42,21 @@ export function useRoom(roomId: string) {
     useEffect(() => {
         const roomRef = database.ref(`rooms/${roomId}`)
 
+        roomRef.get().then(room => {
+            if (!room.exists()) {
+                toast.error('Essa sala não existe ou foi excluída')
+                return history.push('/')
+            }
+        })
+
         roomRef.on('value', room => {
             const databaseRoom = room.val()
             const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {}
+
+            if (databaseRoom?.closedAt ) {
+                toast.error('Essa sala foi encerrada')
+                return history.push('/')
+            }
 
             const parsedQuestions = Object.entries(firebaseQuestions).map(([ key, value ]) => {
                 return {
@@ -60,7 +75,7 @@ export function useRoom(roomId: string) {
         })
 
         return () => roomRef.off('value')
-    }, [roomId, user?.id])
+    }, [roomId, user?.id, history])
 
     return { title, questions }
 }

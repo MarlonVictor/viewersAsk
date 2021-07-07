@@ -32,11 +32,11 @@ export const ButtonContainer = styled.button`
         height: 40px;
         padding: 1rem;
 
-        border: 1px solid #E95671;
+        border: 1px solid var(--blue-facebook);
         background: transparent;
 
         font-size: 1rem;
-        color: #E95671;
+        color: var(--blue-facebook);
     }
 
     &.create-with-google {
