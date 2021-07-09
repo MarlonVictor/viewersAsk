@@ -39,12 +39,15 @@ export const RoomCodeButton = styled.button`
 
         font-size: 0.8rem;
         font-weight: 500;
+    }
 
+    &.default span {
         @media(min-width: 768px) {
             &.small-screen {
                 display: none;
             }
         }
+
         @media(max-width: 767px) {
             &.wide-screen {
                 display: none;
@@ -55,5 +58,9 @@ export const RoomCodeButton = styled.button`
                 display: none;
             }
         }
+    }
+
+    &.rooms-page .small-screen {
+        display: none;
     }
 `

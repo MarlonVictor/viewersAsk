@@ -44,7 +44,7 @@ export const ButtonContainer = styled.button`
         background: var(--gray-800);
     }
 
-    &.create-with-facebook {
+    &.create-with-facebook, &.check-rooms {
         background: transparent;
         margin-top: 1rem;
         border: 2px solid var(--gray-800);

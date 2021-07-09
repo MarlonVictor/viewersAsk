@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -32,7 +32,7 @@ export function Auth() {
 
     async function createRoomWithFacebook() {
         if (!user) {
-            await await signInWithFacebook()
+            await signInWithFacebook()
         }
 
         history.push('/rooms/new')
@@ -42,6 +42,7 @@ export function Auth() {
         e.preventDefault()
 
         if (roomCode.trim() === '') {
+            toast.error('Digite o código da sala')
             return
         }
 
@@ -95,6 +96,11 @@ export function Auth() {
                             Entrar na sala
                         </Button>
                     </FormContainer>
+
+                    <p>
+                        Quer ver todas salas disponíveis?
+                        <Link to='/rooms'>Clique aqui</Link>
+                    </p>
                 </div>
             </main>
         </AuthContainer>

@@ -33,6 +33,18 @@ export const AuthContainer = styled.div`
                     width: 150px;
                 }
             }
+
+            p {
+                margin-top: 1.2rem;
+
+                font-size: 0.9rem;
+                color: var(--gray-300);
+
+                a {
+                    margin-left: 0.5rem;
+                    color: var(--purple-twitch);
+                }
+            }
         }
     }
 `

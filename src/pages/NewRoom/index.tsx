@@ -79,6 +79,13 @@ export function NewRoom() {
                         <Button type="submit" className="enter-room">
                             Criar sala
                         </Button>
+                        <Button 
+                            type="reset" 
+                            className="check-rooms"
+                            onClick={() => history.push('/rooms')}
+                        >
+                            Verificar todas as salas
+                        </Button>
                     </FormContainer>
 
                     <p>

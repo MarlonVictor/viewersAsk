@@ -6,7 +6,8 @@ import { RoomCodeButton } from './styles';
 
 
 interface RoomCodeProps {
-    code: string
+    code: string,
+    page?: string
 }
 
 export function RoomCode(props: RoomCodeProps) {
@@ -16,7 +17,10 @@ export function RoomCode(props: RoomCodeProps) {
     }
 
     return (
-        <RoomCodeButton onClick={copyRoomCodeToClipboard}>
+        <RoomCodeButton 
+            onClick={copyRoomCodeToClipboard}
+            className={props.page ? 'rooms-page' : 'default'}
+        >
             <div>
                 <img src={copyImg} alt="Copy room code" />
             </div>

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { Helmet } from "react-helmet-async";
 import toast from 'react-hot-toast';
 
@@ -87,7 +87,9 @@ export function AdminRoom() {
             </Helmet>
             <header>
                 <div>
-                    <img src={logoImg} alt="ViewerAsk" />
+                    <Link to="/">
+                        <img src={logoImg} alt="ViewerAsk" />
+                    </Link>
                     <div>
                         <RoomCode code={roomId} />
                         <Button 
