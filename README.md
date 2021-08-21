@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MarlonVictor/viewersAsk/blob/master/public/favicon.svg" width="130px">
+  <img src="https://user-images.githubusercontent.com/62356988/130305724-8b68fbf7-2101-4ca8-8be3-1d46dd037b9e.png" width="180px">
 </p>
 
 <p align="center">
